@@ -198,6 +198,350 @@
         </div>
     </section>
 
+    <!-- STORIES SECTION -->
+    <section id="stories" class="py-24 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div class="max-w-2xl">
+                    <h2 class="text-sm font-bold text-rose-500 tracking-widest uppercase mb-2">Written Words</h2>
+                    <h3 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mb-4">Latest Stories</h3>
+                    <p class="text-stone-600">Essays, reflections, and resources from my personal experiences.</p>
+                </div>
+                <button class="mt-6 md:mt-0 inline-flex items-center text-stone-900 font-medium hover:text-rose-600 transition-colors group">
+                    View all stories
+                    <i data-lucide="arrow-right" class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Story 1 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group border border-stone-100 cursor-pointer">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&q=80&w=800" alt="Finding Strength in Vulnerability" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-stone-900 text-xs font-bold uppercase tracking-wider rounded-full shadow-sm">Mental Health</span>
+                        </div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="flex items-center text-sm text-stone-500 mb-4 space-x-4">
+                            <span>October 10, 2025</span>
+                            <span class="w-1 h-1 rounded-full bg-stone-300"></span>
+                            <span>5 min read</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-stone-900 mb-3 leading-snug group-hover:text-rose-600 transition-colors">Finding Strength in Vulnerability</h4>
+                        <p class="text-stone-600 mb-6 flex-grow line-clamp-3">
+                            For years, I hid my struggles behind a smile. It wasn't until I started speaking my truth that I realized vulnerability isn't a weakness—it's our greatest connector.
+                        </p>
+                        <div class="flex items-center text-rose-600 font-medium text-sm">
+                            Read Article <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                        </div>
+
+                        <!-- GEMINI API: Story Insights -->
+                        <div class="mt-6 pt-6 border-t border-stone-100 flex-grow-0">
+                            <button id="btn-insight-1" onclick="event.stopPropagation(); handleGetInsights(1, 'Finding Strength in Vulnerability', 'Mental Health', 'For years, I hid my struggles behind a smile. It wasn\'t until I started speaking my truth that I realized vulnerability isn\'t a weakness—it\'s our greatest connector.')" class="flex items-center w-full justify-center py-2 px-4 rounded-lg bg-stone-50 text-sm font-medium text-stone-700 hover:bg-stone-100 hover:text-rose-600 disabled:opacity-50 transition-colors border border-stone-200">
+                                <i data-lucide="sparkles" class="w-4 h-4 mr-2 text-rose-500"></i> ✨ Get Key Takeaways
+                            </button>
+                            <div id="container-insight-1" class="hidden text-sm text-stone-700 bg-rose-50 border border-rose-100 p-4 rounded-lg shadow-sm">
+                                <h5 class="font-bold mb-2 text-rose-900 flex items-center">
+                                    <i data-lucide="sparkles" class="w-4 h-4 mr-2 text-rose-500"></i> AI Insights
+                                </h5>
+                                <p id="text-insight-1" class="whitespace-pre-wrap leading-relaxed"></p>
+                            </div>
+                            <span id="error-insight-1" class="hidden text-xs text-red-500 mt-2 block text-center"></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Story 2 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group border border-stone-100 cursor-pointer">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=800" alt="The BRCA Gene: My Preventative Journey" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-stone-900 text-xs font-bold uppercase tracking-wider rounded-full shadow-sm">BRCA Prevention</span>
+                        </div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="flex items-center text-sm text-stone-500 mb-4 space-x-4">
+                            <span>August 15, 2025</span>
+                            <span class="w-1 h-1 rounded-full bg-stone-300"></span>
+                            <span>8 min read</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-stone-900 mb-3 leading-snug group-hover:text-rose-600 transition-colors">The BRCA Gene: My Preventative Journey</h4>
+                        <p class="text-stone-600 mb-6 flex-grow line-clamp-3">
+                            When I received my genetic testing results, my world stopped. Here is how I navigated the hardest decisions of my life and found peace on the other side.
+                        </p>
+                        <div class="flex items-center text-rose-600 font-medium text-sm">
+                            Read Article <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                        </div>
+
+                        <!-- GEMINI API: Story Insights -->
+                        <div class="mt-6 pt-6 border-t border-stone-100 flex-grow-0">
+                            <button id="btn-insight-2" onclick="event.stopPropagation(); handleGetInsights(2, 'The BRCA Gene: My Preventative Journey', 'BRCA Prevention', 'When I received my genetic testing results, my world stopped. Here is how I navigated the hardest decisions of my life and found peace on the other side.')" class="flex items-center w-full justify-center py-2 px-4 rounded-lg bg-stone-50 text-sm font-medium text-stone-700 hover:bg-stone-100 hover:text-rose-600 disabled:opacity-50 transition-colors border border-stone-200">
+                                <i data-lucide="sparkles" class="w-4 h-4 mr-2 text-rose-500"></i> ✨ Get Key Takeaways
+                            </button>
+                            <div id="container-insight-2" class="hidden text-sm text-stone-700 bg-rose-50 border border-rose-100 p-4 rounded-lg shadow-sm">
+                                <h5 class="font-bold mb-2 text-rose-900 flex items-center">
+                                    <i data-lucide="sparkles" class="w-4 h-4 mr-2 text-rose-500"></i> AI Insights
+                                </h5>
+                                <p id="text-insight-2" class="whitespace-pre-wrap leading-relaxed"></p>
+                            </div>
+                            <span id="error-insight-2" class="hidden text-xs text-red-500 mt-2 block text-center"></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Story 3 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group border border-stone-100 cursor-pointer">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&q=80&w=800" alt="Breaking the Cycle: Surviving and Thriving" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-stone-900 text-xs font-bold uppercase tracking-wider rounded-full shadow-sm">DV Advocacy</span>
+                        </div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="flex items-center text-sm text-stone-500 mb-4 space-x-4">
+                            <span>May 22, 2025</span>
+                            <span class="w-1 h-1 rounded-full bg-stone-300"></span>
+                            <span>6 min read</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-stone-900 mb-3 leading-snug group-hover:text-rose-600 transition-colors">Breaking the Cycle: Surviving and Thriving</h4>
+                        <p class="text-stone-600 mb-6 flex-grow line-clamp-3">
+                            Leaving was only the first step. The true journey began when I had to rebuild my life from the ground up. A story of resilience and reclaiming power.
+                        </p>
+                        <div class="flex items-center text-rose-600 font-medium text-sm">
+                            Read Article <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                        </div>
+
+                        <!-- GEMINI API: Story Insights -->
+                        <div class="mt-6 pt-6 border-t border-stone-100 flex-grow-0">
+                            <button id="btn-insight-3" onclick="event.stopPropagation(); handleGetInsights(3, 'Breaking the Cycle: Surviving and Thriving', 'DV Advocacy', 'Leaving was only the first step. The true journey began when I had to rebuild my life from the ground up. A story of resilience and reclaiming power.')" class="flex items-center w-full justify-center py-2 px-4 rounded-lg bg-stone-50 text-sm font-medium text-stone-700 hover:bg-stone-100 hover:text-rose-600 disabled:opacity-50 transition-colors border border-stone-200">
+                                <i data-lucide="sparkles" class="w-4 h-4 mr-2 text-rose-500"></i> ✨ Get Key Takeaways
+                            </button>
+                            <div id="container-insight-3" class="hidden text-sm text-stone-700 bg-rose-50 border border-rose-100 p-4 rounded-lg shadow-sm">
+                                <h5 class="font-bold mb-2 text-rose-900 flex items-center">
+                                    <i data-lucide="sparkles" class="w-4 h-4 mr-2 text-rose-500"></i> AI Insights
+                                </h5>
+                                <p id="text-insight-3" class="whitespace-pre-wrap leading-relaxed"></p>
+                            </div>
+                            <span id="error-insight-3" class="hidden text-xs text-red-500 mt-2 block text-center"></span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- GEMINI INTEGRATION: REFLECTION SPACE SECTION -->
+    <section id="reflection" class="py-24 bg-rose-600 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557682250-33bd709cbe85?auto=format&fit=crop&q=80&w=2000')] opacity-10 object-cover mix-blend-overlay"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-rose-700/80 to-transparent"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center justify-center p-3 bg-white/10 rounded-2xl backdrop-blur-md mb-6">
+                <i data-lucide="sparkles" class="w-8 h-8 text-rose-200"></i>
+            </div>
+            <h2 class="text-sm font-bold text-rose-200 tracking-widest uppercase mb-2">Interactive Support</h2>
+            <h3 class="text-3xl sm:text-4xl font-serif font-bold mb-6">Guided Reflection Space</h3>
+            <p class="text-rose-100 mb-10 text-lg max-w-2xl mx-auto">
+                Healing isn't linear. Share what's heavy on your heart today, and receive a personalized affirmation and journaling prompt to help you process your journey.
+            </p>
+            
+            <div class="bg-white rounded-3xl p-6 sm:p-10 text-left shadow-2xl relative overflow-hidden">
+                <div class="absolute -top-20 -right-20 w-40 h-40 bg-rose-50 rounded-full blur-3xl opacity-50"></div>
+                
+                <div class="relative z-10">
+                    <textarea 
+                        id="reflection-input"
+                        class="w-full bg-stone-50 border border-stone-200 rounded-2xl p-5 text-stone-900 focus:outline-none focus:ring-2 focus:ring-rose-500 mb-6 resize-none text-lg shadow-inner placeholder:text-stone-400"
+                        rows="4"
+                        placeholder="I've been feeling overwhelmed about..."
+                        oninput="document.getElementById('btn-reflection').disabled = !this.value.trim()"
+                    ></textarea>
+                    
+                    <button 
+                        id="btn-reflection"
+                        onclick="handleGenerateReflection()"
+                        disabled
+                        class="w-full py-4 bg-stone-900 text-white rounded-2xl font-medium hover:bg-stone-800 disabled:opacity-50 flex items-center justify-center transition-all text-lg shadow-lg hover:shadow-xl"
+                    >
+                        <span id="btn-reflection-content" class="flex items-center">
+                            <i data-lucide="sparkles" class="mr-3 w-5 h-5 text-rose-400"></i> ✨ Generate Affirmation & Prompt
+                        </span>
+                    </button>
+                    
+                    <div id="error-reflection" class="hidden mt-4 p-4 bg-red-50 text-red-600 rounded-xl text-sm text-center border border-red-100"></div>
+                    
+                    <div id="output-reflection" class="hidden mt-8 p-8 bg-rose-50/80 border border-rose-200 rounded-2xl shadow-sm transform transition-all">
+                        <h4 class="font-serif font-bold text-xl text-rose-900 mb-4 flex items-center">
+                            <i data-lucide="heart" class="w-5 h-5 mr-2 text-rose-500"></i> For You
+                        </h4>
+                        <p id="text-reflection" class="text-stone-800 whitespace-pre-wrap leading-relaxed text-lg"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPEAKING / VIDEOS SECTION -->
+    <section id="speaking" class="py-24 bg-stone-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-sm font-bold text-rose-400 tracking-widest uppercase mb-2">On Stage</h2>
+                <h3 class="text-3xl sm:text-4xl font-serif font-bold mb-4">Speaking & Engagements</h3>
+                <p class="text-stone-400 text-lg">
+                    Watch recent keynotes, panels, and interviews where I share insights on advocacy and resilience.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Video 1 -->
+                <div class="group relative rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="aspect-video relative">
+                        <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&q=80&w=800" alt="TEDx: The Power of Speaking Out" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100" />
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-rose-600 transition-all duration-300">
+                                <i data-lucide="play" class="w-6 h-6 text-white ml-1 fill-current"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-black/70 backdrop-blur-sm px-2 py-1 rounded text-xs font-mono">18:24</div>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="text-lg font-bold mb-1 group-hover:text-rose-400 transition-colors">TEDx: The Power of Speaking Out</h4>
+                        <p class="text-stone-400 text-sm">TEDx Chicago Women</p>
+                    </div>
+                </div>
+                <!-- Video 2 -->
+                <div class="group relative rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="aspect-video relative">
+                        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=800" alt="Keynote: Reclaiming Your Narrative" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100" />
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-rose-600 transition-all duration-300">
+                                <i data-lucide="play" class="w-6 h-6 text-white ml-1 fill-current"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-black/70 backdrop-blur-sm px-2 py-1 rounded text-xs font-mono">45:00</div>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="text-lg font-bold mb-1 group-hover:text-rose-400 transition-colors">Keynote: Reclaiming Your Narrative</h4>
+                        <p class="text-stone-400 text-sm">National Wellness Summit 2025</p>
+                    </div>
+                </div>
+                <!-- Video 3 -->
+                <div class="group relative rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="aspect-video relative">
+                        <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&q=80&w=800" alt="Panel: Mental Health in the Modern Age" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100" />
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-rose-600 transition-all duration-300">
+                                <i data-lucide="play" class="w-6 h-6 text-white ml-1 fill-current"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-black/70 backdrop-blur-sm px-2 py-1 rounded text-xs font-mono">32:15</div>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="text-lg font-bold mb-1 group-hover:text-rose-400 transition-colors">Panel: Mental Health in the Modern Age</h4>
+                        <p class="text-stone-400 text-sm">Global Advocacy Forum</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <button onclick="scrollToSection('booking')" class="px-8 py-4 bg-white text-stone-900 rounded-full font-medium hover:bg-stone-200 transition-all shadow-lg">
+                    Inquire About Booking
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRANSCRIPTS SECTION -->
+    <section id="transcripts" class="py-24 bg-stone-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center justify-center p-3 bg-white rounded-2xl shadow-sm mb-6 border border-stone-100">
+                    <i data-lucide="file-text" class="w-8 h-8 text-rose-500"></i>
+                </div>
+                <h2 class="text-sm font-bold text-rose-500 tracking-widest uppercase mb-2">Read the Words</h2>
+                <h3 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mb-4">Event Transcripts</h3>
+                <p class="text-stone-600 text-lg max-w-2xl mx-auto">
+                    Missed a talk or want to revisit a specific message? Explore full transcripts of my past public speaking engagements below.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Transcript 1 -->
+                <div id="transcript-container-1" class="bg-white rounded-2xl border border-stone-200 shadow-sm transition-all duration-300 overflow-hidden hover:border-rose-200 transcript-container">
+                    <button onclick="toggleTranscript(1)" class="w-full text-left px-6 py-6 sm:px-8 flex items-center justify-between focus:outline-none group">
+                        <div>
+                            <h4 id="transcript-title-1" class="text-xl font-bold mb-1 text-stone-900 group-hover:text-rose-500 transition-colors transcript-title">The Power of Speaking Out</h4>
+                            <div class="flex items-center text-sm text-stone-500 space-x-3">
+                                <span class="font-medium text-stone-700">TEDx Chicago Women</span>
+                                <span class="w-1 h-1 rounded-full bg-stone-300"></span>
+                                <span>October 12, 2025</span>
+                            </div>
+                        </div>
+                        <div id="transcript-icon-container-1" class="ml-4 p-2 rounded-full bg-stone-100 text-stone-500 group-hover:bg-rose-50 group-hover:text-rose-500 transition-colors transcript-icon-container">
+                            <i id="transcript-icon-1" data-lucide="chevron-down" class="w-5 h-5 transcript-icon"></i>
+                        </div>
+                    </button>
+                    <div id="transcript-content-1" class="max-h-0 opacity-0 transition-all duration-500 ease-in-out transcript-content">
+                        <div class="px-6 pb-8 sm:px-8 border-t border-stone-100 pt-6 bg-stone-50/50">
+                            <p class="text-stone-700 leading-relaxed font-serif text-lg">
+                                "Thank you all for being here today. When I first started sharing my story, I was terrified. I thought vulnerability was a liability. But what I've learned is that our darkest moments, when brought into the light, lose their power over us. We reclaim our narrative not by hiding, but by speaking out. Domestic violence thrives in silence. Mental health stigma thrives in shadows. By standing here today, sharing my truth, I hope to give you the permission to share yours. It isn't easy, and healing certainly isn't linear, but your voice is the most powerful tool you have to enact change."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transcript 2 -->
+                <div id="transcript-container-2" class="bg-white rounded-2xl border border-stone-200 shadow-sm transition-all duration-300 overflow-hidden hover:border-rose-200 transcript-container">
+                    <button onclick="toggleTranscript(2)" class="w-full text-left px-6 py-6 sm:px-8 flex items-center justify-between focus:outline-none group">
+                        <div>
+                            <h4 id="transcript-title-2" class="text-xl font-bold mb-1 text-stone-900 group-hover:text-rose-500 transition-colors transcript-title">Reclaiming Your Narrative</h4>
+                            <div class="flex items-center text-sm text-stone-500 space-x-3">
+                                <span class="font-medium text-stone-700">National Wellness Summit</span>
+                                <span class="w-1 h-1 rounded-full bg-stone-300"></span>
+                                <span>March 05, 2025</span>
+                            </div>
+                        </div>
+                        <div id="transcript-icon-container-2" class="ml-4 p-2 rounded-full bg-stone-100 text-stone-500 group-hover:bg-rose-50 group-hover:text-rose-500 transition-colors transcript-icon-container">
+                            <i id="transcript-icon-2" data-lucide="chevron-down" class="w-5 h-5 transcript-icon"></i>
+                        </div>
+                    </button>
+                    <div id="transcript-content-2" class="max-h-0 opacity-0 transition-all duration-500 ease-in-out transcript-content">
+                        <div class="px-6 pb-8 sm:px-8 border-t border-stone-100 pt-6 bg-stone-50/50">
+                            <p class="text-stone-700 leading-relaxed font-serif text-lg">
+                                "Good morning. Today I want to talk about ownership. Who owns your story? For a long time, I let my trauma write the chapters of my life. I let my BRCA diagnosis dictate my future with fear. The turning point came when I realized I was holding the pen all along. Taking preventative action wasn't giving up; it was taking control. It requires a profound amount of courage to look at the broken pieces of your life, or a terrifying medical reality, and decide you are going to build something beautiful and proactive out of them."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transcript 3 -->
+                <div id="transcript-container-3" class="bg-white rounded-2xl border border-stone-200 shadow-sm transition-all duration-300 overflow-hidden hover:border-rose-200 transcript-container">
+                    <button onclick="toggleTranscript(3)" class="w-full text-left px-6 py-6 sm:px-8 flex items-center justify-between focus:outline-none group">
+                        <div>
+                            <h4 id="transcript-title-3" class="text-xl font-bold mb-1 text-stone-900 group-hover:text-rose-500 transition-colors transcript-title">Breaking the Silence on DV</h4>
+                            <div class="flex items-center text-sm text-stone-500 space-x-3">
+                                <span class="font-medium text-stone-700">Community Advocacy Keynote</span>
+                                <span class="w-1 h-1 rounded-full bg-stone-300"></span>
+                                <span>November 18, 2024</span>
+                            </div>
+                        </div>
+                        <div id="transcript-icon-container-3" class="ml-4 p-2 rounded-full bg-stone-100 text-stone-500 group-hover:bg-rose-50 group-hover:text-rose-500 transition-colors transcript-icon-container">
+                            <i id="transcript-icon-3" data-lucide="chevron-down" class="w-5 h-5 transcript-icon"></i>
+                        </div>
+                    </button>
+                    <div id="transcript-content-3" class="max-h-0 opacity-0 transition-all duration-500 ease-in-out transcript-content">
+                        <div class="px-6 pb-8 sm:px-8 border-t border-stone-100 pt-6 bg-stone-50/50">
+                            <p class="text-stone-700 leading-relaxed font-serif text-lg">
+                                "Leaving is often framed as the end of the story, but for survivors, leaving is just page one of a brand new, very intimidating book. The isolation that comes after can sometimes feel as overwhelming as the abuse itself. That is why community is so vital. We must educate our neighborhoods, our workplaces, and our families not just on how to spot the signs of domestic violence, but on how to actively support survivors as they rebuild their lives from the ground up."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- PRESENTATIONS / SLIDES SECTION -->
     <section id="slides" class="py-24 bg-white border-t border-stone-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -272,11 +616,92 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="mt-16 text-center">
-                <button onclick="scrollToSection('booking')" class="px-8 py-4 bg-white text-stone-900 rounded-full font-medium hover:bg-stone-200 transition-all shadow-lg">
-                    Inquire About Booking
-                </button>
+        </div>
+    </section>
+
+    <!-- CALENDAR SECTION -->
+    <section id="calendar" class="py-24 bg-stone-50 border-t border-stone-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-rose-500 tracking-widest uppercase mb-2">Join Me Live</h2>
+                <h3 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mb-4">Upcoming Events & Talks</h3>
+                <p class="text-stone-600 text-lg max-w-2xl mx-auto">
+                    Find out where I'll be speaking next. I'd love to connect with you in person or virtually.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Event 1 -->
+                <div class="bg-white rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between border border-stone-200 hover:border-rose-300 hover:shadow-md transition-all group">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-6 md:mb-0">
+                        <div class="bg-stone-50 px-6 py-4 rounded-xl border border-stone-100 shadow-sm text-center min-w-[130px]">
+                            <span class="block text-rose-600 font-bold text-xl">May 15</span>
+                            <span class="block text-stone-500 text-sm font-medium"> 2026</span>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="px-3 py-1 bg-rose-100 text-rose-700 text-xs font-bold uppercase tracking-wider rounded-full">Keynote Speaker</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-stone-900 mb-2 group-hover:text-rose-600 transition-colors">Overcoming Trauma: A Survivor's Perspective</h4>
+                            <div class="flex flex-wrap items-center text-sm text-stone-500 gap-4">
+                                <span class="flex items-center"><i data-lucide="clock" class="w-4 h-4 mr-1.5"></i> 10:00 AM EST</span>
+                                <span class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-1.5"></i> New York City, NY - Javits Center</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="w-full md:w-auto px-6 py-3 bg-white border border-stone-200 text-stone-900 rounded-xl font-medium hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 transition-all flex items-center justify-center whitespace-nowrap">
+                        Get Tickets
+                        <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="bg-white rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between border border-stone-200 hover:border-rose-300 hover:shadow-md transition-all group">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-6 md:mb-0">
+                        <div class="bg-stone-50 px-6 py-4 rounded-xl border border-stone-100 shadow-sm text-center min-w-[130px]">
+                            <span class="block text-rose-600 font-bold text-xl">June 02</span>
+                            <span class="block text-stone-500 text-sm font-medium"> 2026</span>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="px-3 py-1 bg-rose-100 text-rose-700 text-xs font-bold uppercase tracking-wider rounded-full">Panelist</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-stone-900 mb-2 group-hover:text-rose-600 transition-colors">Navigating Genetic Testing & BRCA</h4>
+                            <div class="flex flex-wrap items-center text-sm text-stone-500 gap-4">
+                                <span class="flex items-center"><i data-lucide="clock" class="w-4 h-4 mr-1.5"></i> 2:00 PM CST</span>
+                                <span class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-1.5"></i> Virtual Event - Zoom Webinar</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="w-full md:w-auto px-6 py-3 bg-white border border-stone-200 text-stone-900 rounded-xl font-medium hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 transition-all flex items-center justify-center whitespace-nowrap">
+                        Get Tickets
+                        <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="bg-white rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between border border-stone-200 hover:border-rose-300 hover:shadow-md transition-all group">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-6 md:mb-0">
+                        <div class="bg-stone-50 px-6 py-4 rounded-xl border border-stone-100 shadow-sm text-center min-w-[130px]">
+                            <span class="block text-rose-600 font-bold text-xl">August 18</span>
+                            <span class="block text-stone-500 text-sm font-medium"> 2026</span>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="px-3 py-1 bg-rose-100 text-rose-700 text-xs font-bold uppercase tracking-wider rounded-full">Featured Speaker</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-stone-900 mb-2 group-hover:text-rose-600 transition-colors">Women's Empowerment Summit 2026</h4>
+                            <div class="flex flex-wrap items-center text-sm text-stone-500 gap-4">
+                                <span class="flex items-center"><i data-lucide="clock" class="w-4 h-4 mr-1.5"></i> 6:30 PM PST</span>
+                                <span class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-1.5"></i> Los Angeles, CA - LA Convention Center</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="w-full md:w-auto px-6 py-3 bg-white border border-stone-200 text-stone-900 rounded-xl font-medium hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 transition-all flex items-center justify-center whitespace-nowrap">
+                        Get Tickets
+                        <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
