@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashton Grace Talks</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                        serif: ['ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'spin': 'spin 1s linear infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base styles from React app */
+        body {
+            background-color: #fafaf9; /* stone-50 */
+            color: #1c1917; /* stone-900 */
+        }
+        ::selection {
+            background-color: #fecdd3; /* rose-200 */
+            color: #881337; /* rose-900 */
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-stone-200 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 cursor-pointer" onclick="scrollToSection('home')">
+                    <h1 class="text-2xl font-serif font-bold text-stone-900 tracking-tight">
+                        Ashton Grace<span class="text-rose-500">.</span>
+                    </h1>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <button onclick="scrollToSection('home')" class="text-sm font-medium text-stone-600 hover:text-rose-600 transition-colors">Home</button>
+                    <button onclick="scrollToSection('advocacy')" class="text-sm font-medium text-stone-600 hover:text-rose-600 transition-colors">Advocacy</button>
+                    <button onclick="scrollToSection('stories')" class="text-sm font-medium text-stone-600 hover:text-rose-600 transition-colors">Stories</button>
+                    <button onclick="scrollToSection('reflection')" class="text-sm font-medium text-stone-600 hover:text-rose-600 transition-colors">Reflection</button>
+                    <button onclick="scrollToSection('speaking')" class="text-sm font-medium text-stone-600 hover:text-rose-600 transition-colors">Speaking</button>
+                    <button onclick="scrollToSection('transcripts')" class="text-sm font-medium text-stone-600 hover:text-rose-600 transition-colors">Transcripts</button>
+                    <button onclick="scrollToSection('slides')" class="text-sm font-medium text-stone-600 hover:text-rose-600 transition-colors">Slides</button>
+                    <button onclick="scrollToSection('calendar')" class="text-sm font-medium text-stone-600 hover:text-rose-600 transition-colors">Calendar</button>
+                    <button onclick="scrollToSection('testimonials')" class="text-sm font-medium text-stone-600 hover:text-rose-600 transition-colors">Testimonials</button>
+                    <button onclick="scrollToSection('contact')" class="px-5 py-2.5 bg-stone-900 text-white text-sm font-medium rounded-full hover:bg-stone-800 transition-all shadow-sm hover:shadow-md">
+                        Let's Talk
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-stone-600 hover:text-stone-900 focus:outline-none">
+                        <i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-stone-200 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1 sm:px-3 flex flex-col">
+                <button onclick="scrollToSection('home')" class="block px-3 py-3 text-base font-medium text-stone-700 hover:text-rose-600 hover:bg-stone-50 rounded-md text-left">Home</button>
+                <button onclick="scrollToSection('advocacy')" class="block px-3 py-3 text-base font-medium text-stone-700 hover:text-rose-600 hover:bg-stone-50 rounded-md text-left">Advocacy</button>
+                <button onclick="scrollToSection('stories')" class="block px-3 py-3 text-base font-medium text-stone-700 hover:text-rose-600 hover:bg-stone-50 rounded-md text-left">Stories</button>
+                <button onclick="scrollToSection('reflection')" class="block px-3 py-3 text-base font-medium text-stone-700 hover:text-rose-600 hover:bg-stone-50 rounded-md text-left">Reflection</button>
+                <button onclick="scrollToSection('speaking')" class="block px-3 py-3 text-base font-medium text-stone-700 hover:text-rose-600 hover:bg-stone-50 rounded-md text-left">Speaking</button>
+                <button onclick="scrollToSection('transcripts')" class="block px-3 py-3 text-base font-medium text-stone-700 hover:text-rose-600 hover:bg-stone-50 rounded-md text-left">Transcripts</button>
+                <button onclick="scrollToSection('slides')" class="block px-3 py-3 text-base font-medium text-stone-700 hover:text-rose-600 hover:bg-stone-50 rounded-md text-left">Slides</button>
+                <button onclick="scrollToSection('calendar')" class="block px-3 py-3 text-base font-medium text-stone-700 hover:text-rose-600 hover:bg-stone-50 rounded-md text-left">Calendar</button>
+                <button onclick="scrollToSection('testimonials')" class="block px-3 py-3 text-base font-medium text-stone-700 hover:text-rose-600 hover:bg-stone-50 rounded-md text-left">Testimonials</button>
+                <button onclick="scrollToSection('contact')" class="block px-3 py-3 text-base font-medium text-stone-700 hover:text-rose-600 hover:bg-stone-50 rounded-md text-left">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="pt-32 pb-20 lg:pt-48 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
+        <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+            <div class="mb-12 lg:mb-0 relative z-10">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-rose-100 text-rose-800 text-xs font-semibold uppercase tracking-wide mb-6">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
+                    </span>
+                    <span>Advocate • Speaker • Writer</span>
+                </div>
+                <h2 class="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-stone-900 leading-[1.1] mb-6">
+                    Transforming pain into <span class="text-rose-500 italic">purpose.</span>
+                </h2>
+                <p class="text-lg sm:text-xl text-stone-600 mb-8 max-w-lg leading-relaxed">
+                    Hi, I'm Ashton Grace. I share my journey through mental health, domestic violence survival, and BRCA prevention to empower others to find their voice and heal.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button onclick="scrollToSection('stories')" class="px-8 py-4 bg-rose-600 text-white rounded-full font-medium hover:bg-rose-700 transition-all flex items-center justify-center shadow-lg shadow-rose-200">
+                        Read My Story
+                        <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                    </button>
+                    <button onclick="scrollToSection('speaking')" class="px-8 py-4 bg-white border border-stone-200 text-stone-900 rounded-full font-medium hover:bg-stone-50 hover:border-stone-300 transition-all flex items-center justify-center">
+                        Book Me to Speak
+                    </button>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute inset-0 bg-rose-200 rounded-[3rem] transform rotate-3 scale-105 -z-10 opacity-50 blur-lg"></div>
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1200" alt="Ashton Grace smiling" class="rounded-[2rem] shadow-2xl object-cover h-[500px] lg:h-[700px] w-full" />
+            </div>
+        </div>
+    </section>
+
+    <!-- ADVOCACY THEMES SECTION -->
+    <section id="advocacy" class="py-24 bg-white border-y border-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-sm font-bold text-rose-500 tracking-widest uppercase mb-2">Core Missions</h2>
+                <h3 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mb-4">Themes of my journey</h3>
+                <p class="text-stone-600 text-lg">
+                    My advocacy is rooted in my personal experiences. I believe that by shedding light on these critical issues, we can foster understanding and create systemic change.
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Theme 1 -->
+                <div class="bg-stone-50 rounded-2xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-stone-100">
+                    <div class="bg-white w-16 h-16 rounded-xl flex items-center justify-center shadow-sm mb-6">
+                        <i data-lucide="activity" class="w-8 h-8 text-rose-500"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-stone-900 mb-3">Mental Health</h4>
+                    <p class="text-stone-600 leading-relaxed text-sm">
+                        Breaking the stigma and fostering open conversations about anxiety, depression, and holistic wellness.
+                    </p>
+                </div>
+                <!-- Theme 2 -->
+                <div class="bg-stone-50 rounded-2xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-stone-100">
+                    <div class="bg-white w-16 h-16 rounded-xl flex items-center justify-center shadow-sm mb-6">
+                        <i data-lucide="shield" class="w-8 h-8 text-indigo-500"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-stone-900 mb-3">DV Advocacy</h4>
+                    <p class="text-stone-600 leading-relaxed text-sm">
+                        Supporting survivors of domestic violence and educating communities on recognizing and breaking the cycle.
+                    </p>
+                </div>
+                <!-- Theme 3 -->
+                <div class="bg-stone-50 rounded-2xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-stone-100">
+                    <div class="bg-white w-16 h-16 rounded-xl flex items-center justify-center shadow-sm mb-6">
+                        <i data-lucide="heart" class="w-8 h-8 text-pink-500"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-stone-900 mb-3">BRCA Prevention</h4>
+                    <p class="text-stone-600 leading-relaxed text-sm">
+                        Sharing the preventative journey and empowering others to take charge of their genetic health and future.
+                    </p>
+                </div>
+                <!-- Theme 4 -->
+                <div class="bg-stone-50 rounded-2xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-stone-100">
+                    <div class="bg-white w-16 h-16 rounded-xl flex items-center justify-center shadow-sm mb-6">
+                        <i data-lucide="megaphone" class="w-8 h-8 text-amber-500"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-stone-900 mb-3">Empowerment</h4>
+                    <p class="text-stone-600 leading-relaxed text-sm">
+                        Inspiring individuals to find their voice, share their truth, and advocate for themselves and others.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRESENTATIONS / SLIDES SECTION -->
+    <section id="slides" class="py-24 bg-white border-t border-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div class="max-w-2xl">
+                    <h2 class="text-sm font-bold text-rose-500 tracking-widest uppercase mb-2">Visuals & Resources</h2>
+                    <h3 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mb-4">Presentation Slides</h3>
+                    <p class="text-stone-600 text-lg">
+                        Review the slide decks and visual aids from my keynotes and workshops. Available for download and reference.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Slide Deck 1 -->
+                <div class="bg-stone-50 rounded-2xl overflow-hidden border border-stone-200 hover:border-rose-300 hover:shadow-md transition-all group flex flex-col">
+                    <div class="relative h-48 overflow-hidden bg-stone-200">
+                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800" alt="Presentation Slides" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" />
+                        <div class="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors duration-300"></div>
+                    </div>
+                    <div class="p-6 sm:p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="px-3 py-1 bg-white text-stone-600 text-xs font-bold uppercase tracking-wider rounded-full border border-stone-200 shadow-sm"><i data-lucide="presentation" class="w-3 h-3 inline mr-1"></i>PPTX</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-stone-900 mb-2 group-hover:text-rose-600 transition-colors">The Power of Speaking Out</h4>
+                        <p class="text-sm text-stone-500 mb-6 flex-grow">TEDx Chicago Women • 2025</p>
+                        
+                        <button class="w-full py-3 bg-white border border-stone-200 text-stone-900 rounded-xl font-medium hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 transition-all flex items-center justify-center">
+                            <i data-lucide="download" class="w-4 h-4 mr-2"></i>
+                            Download Deck
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slide Deck 2 -->
+                <div class="bg-stone-50 rounded-2xl overflow-hidden border border-stone-200 hover:border-rose-300 hover:shadow-md transition-all group flex flex-col">
+                    <div class="relative h-48 overflow-hidden bg-stone-200">
+                        <img src="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?auto=format&fit=crop&q=80&w=800" alt="Presentation Slides" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" />
+                        <div class="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors duration-300"></div>
+                    </div>
+                    <div class="p-6 sm:p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="px-3 py-1 bg-white text-stone-600 text-xs font-bold uppercase tracking-wider rounded-full border border-stone-200 shadow-sm"><i data-lucide="presentation" class="w-3 h-3 inline mr-1"></i>PDF</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-stone-900 mb-2 group-hover:text-rose-600 transition-colors">Reclaiming Your Narrative</h4>
+                        <p class="text-sm text-stone-500 mb-6 flex-grow">National Wellness Summit • 2025</p>
+                        
+                        <button class="w-full py-3 bg-white border border-stone-200 text-stone-900 rounded-xl font-medium hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 transition-all flex items-center justify-center">
+                            <i data-lucide="download" class="w-4 h-4 mr-2"></i>
+                            Download Deck
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slide Deck 3 -->
+                <div class="bg-stone-50 rounded-2xl overflow-hidden border border-stone-200 hover:border-rose-300 hover:shadow-md transition-all group flex flex-col">
+                    <div class="relative h-48 overflow-hidden bg-stone-200">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" alt="Presentation Slides" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" />
+                        <div class="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors duration-300"></div>
+                    </div>
+                    <div class="p-6 sm:p-8 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="px-3 py-1 bg-white text-stone-600 text-xs font-bold uppercase tracking-wider rounded-full border border-stone-200 shadow-sm"><i data-lucide="presentation" class="w-3 h-3 inline mr-1"></i>PPTX</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-stone-900 mb-2 group-hover:text-rose-600 transition-colors">Breaking the Silence on DV</h4>
+                        <p class="text-sm text-stone-500 mb-6 flex-grow">Community Advocacy Keynote • 2024</p>
+                        
+                        <button class="w-full py-3 bg-white border border-stone-200 text-stone-900 rounded-xl font-medium hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 transition-all flex items-center justify-center">
+                            <i data-lucide="download" class="w-4 h-4 mr-2"></i>
+                            Download Deck
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALENDAR SECTION -->
+    <section id="calendar" class="py-24 bg-stone-50 border-t border-stone-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-rose-500 tracking-widest uppercase mb-2">Join Me Live</h2>
+                <h3 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mb-4">Upcoming Events & Talks</h3>
+                <p class="text-stone-600 text-lg max-w-2xl mx-auto">
+                    Find out where I'll be speaking next. I'd love to connect with you in person or virtually.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Event 1 -->
+                <div class="bg-stone-50 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between border border-stone-200 hover:border-rose-300 hover:shadow-md transition-all group">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-6 md:mb-0">
+                        <div class="bg-white px-6 py-4 rounded-xl border border-stone-100 shadow-sm text-center min-w-[130px]">
+                            <span class="block text-rose-600 font-bold text-xl">May 15</span>
+                            <span class="block text-stone-500 text-sm font-medium"> 2026</span>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="px-3 py-1 bg-rose-100 text-rose-700 text-xs font-bold uppercase tracking-wider rounded-full">Keynote Speaker</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-stone-900 mb-2 group-hover:text-rose-600 transition-colors">Overcoming Trauma: A Survivor's Perspective</h4>
+                            <div class="flex flex-wrap items-center text-sm text-stone-500 gap-4">
+                                <span class="flex items-center"><i data-lucide="clock" class="w-4 h-4 mr-1.5"></i> 10:00 AM EST</span>
+                                <span class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-1.5"></i> New York City, NY - Javits Center</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="w-full md:w-auto px-6 py-3 bg-white border border-stone-200 text-stone-900 rounded-xl font-medium hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 transition-all flex items-center justify-center whitespace-nowrap">
+                        Get Tickets
+                        <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="bg-stone-50 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between border border-stone-200 hover:border-rose-300 hover:shadow-md transition-all group">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-6 md:mb-0">
+                        <div class="bg-white px-6 py-4 rounded-xl border border-stone-100 shadow-sm text-center min-w-[130px]">
+                            <span class="block text-rose-600 font-bold text-xl">June 02</span>
+                            <span class="block text-stone-500 text-sm font-medium"> 2026</span>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="px-3 py-1 bg-rose-100 text-rose-700 text-xs font-bold uppercase tracking-wider rounded-full">Panelist</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-stone-900 mb-2 group-hover:text-rose-600 transition-colors">Navigating Genetic Testing & BRCA</h4>
+                            <div class="flex flex-wrap items-center text-sm text-stone-500 gap-4">
+                                <span class="flex items-center"><i data-lucide="clock" class="w-4 h-4 mr-1.5"></i> 2:00 PM CST</span>
+                                <span class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-1.5"></i> Virtual Event - Zoom Webinar</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="w-full md:w-auto px-6 py-3 bg-white border border-stone-200 text-stone-900 rounded-xl font-medium hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 transition-all flex items-center justify-center whitespace-nowrap">
+                        Get Tickets
+                        <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="bg-stone-50 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between border border-stone-200 hover:border-rose-300 hover:shadow-md transition-all group">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-6 md:mb-0">
+                        <div class="bg-white px-6 py-4 rounded-xl border border-stone-100 shadow-sm text-center min-w-[130px]">
+                            <span class="block text-rose-600 font-bold text-xl">August 18</span>
+                            <span class="block text-stone-500 text-sm font-medium"> 2026</span>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="px-3 py-1 bg-rose-100 text-rose-700 text-xs font-bold uppercase tracking-wider rounded-full">Featured Speaker</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-stone-900 mb-2 group-hover:text-rose-600 transition-colors">Women's Empowerment Summit 2026</h4>
+                            <div class="flex flex-wrap items-center text-sm text-stone-500 gap-4">
+                                <span class="flex items-center"><i data-lucide="clock" class="w-4 h-4 mr-1.5"></i> 6:30 PM PST</span>
+                                <span class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-1.5"></i> Los Angeles, CA - LA Convention Center</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="w-full md:w-auto px-6 py-3 bg-white border border-stone-200 text-stone-900 rounded-xl font-medium hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 transition-all flex items-center justify-center whitespace-nowrap">
+                        Get Tickets
+                        <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="py-24 bg-rose-50 overflow-hidden relative">
+        <div class="absolute -left-[10%] top-0 w-96 h-96 bg-rose-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
+        <div class="absolute -right-[10%] bottom-0 w-96 h-96 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-rose-500 tracking-widest uppercase mb-2">Community</h2>
+                <h3 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900">Voices of Impact</h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-rose-100 relative">
+                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-rose-100 rotate-180"></i>
+                    <div class="flex text-rose-500 mb-6 space-x-1">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                    </div>
+                    <p class="text-stone-700 italic mb-8 relative z-10 leading-relaxed">
+                        "Ashton's words gave me the courage to finally seek help. Her honesty about her mental health journey made me realize I wasn't alone."
+                    </p>
+                    <div>
+                        <h5 class="font-bold text-stone-900">Sarah J.</h5>
+                        <p class="text-sm text-stone-500">Reader & Advocate</p>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-rose-100 relative">
+                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-rose-100 rotate-180"></i>
+                    <div class="flex text-rose-500 mb-6 space-x-1">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                    </div>
+                    <p class="text-stone-700 italic mb-8 relative z-10 leading-relaxed">
+                        "Hearing her speak about BRCA prevention changed my life. Because of Ashton, I got tested and was able to make informed decisions about my own health."
+                    </p>
+                    <div>
+                        <h5 class="font-bold text-stone-900">Emily R.</h5>
+                        <p class="text-sm text-stone-500">Audience Member</p>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-rose-100 relative">
+                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-rose-100 rotate-180"></i>
+                    <div class="flex text-rose-500 mb-6 space-x-1">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                    </div>
+                    <p class="text-stone-700 italic mb-8 relative z-10 leading-relaxed">
+                        "An absolute powerhouse on stage. Ashton tackles difficult subjects like domestic violence with grace, empathy, and undeniable strength."
+                    </p>
+                    <div>
+                        <h5 class="font-bold text-stone-900">Marcus T.</h5>
+                        <p class="text-sm text-stone-500">Event Organizer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER & CONTACT -->
+    <footer id="contact" class="bg-stone-950 text-stone-400 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="lg:col-span-2">
+                    <h1 class="text-2xl font-serif font-bold text-white tracking-tight mb-4">
+                        Ashton Grace<span class="text-rose-500">.</span>
+                    </h1>
+                    <p class="mb-6 max-w-sm">
+                        Advocating for mental health, surviving domestic violence, and navigating BRCA prevention. Let's make the invisible visible together.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-rose-600 hover:text-white transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-rose-600 hover:text-white transition-colors">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-rose-600 hover:text-white transition-colors">
+                            <i data-lucide="youtube" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-rose-600 hover:text-white transition-colors">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Explore</h4>
+                    <ul class="space-y-3">
+                        <li><button onclick="scrollToSection('home')" class="hover:text-rose-400 transition-colors">Home</button></li>
+                        <li><button onclick="scrollToSection('advocacy')" class="hover:text-rose-400 transition-colors">Advocacy</button></li>
+                        <li><button onclick="scrollToSection('stories')" class="hover:text-rose-400 transition-colors">Stories</button></li>
+                        <li><button onclick="scrollToSection('reflection')" class="hover:text-rose-400 transition-colors">Reflection</button></li>
+                        <li><button onclick="scrollToSection('speaking')" class="hover:text-rose-400 transition-colors">Speaking</button></li>
+                        <li><button onclick="scrollToSection('transcripts')" class="hover:text-rose-400 transition-colors">Transcripts</button></li>
+                        <li><button onclick="scrollToSection('slides')" class="hover:text-rose-400 transition-colors">Slides</button></li>
+                        <li><button onclick="scrollToSection('calendar')" class="hover:text-rose-400 transition-colors">Calendar</button></li>
+                        <li><button onclick="scrollToSection('testimonials')" class="hover:text-rose-400 transition-colors">Testimonials</button></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Newsletter</h4>
+                    <p class="text-sm mb-4">Join my community to receive updates, new stories, and resources directly to your inbox.</p>
+                    <form class="flex flex-col space-y-2" onsubmit="event.preventDefault()">
+                        <input type="email" placeholder="Your email address" class="bg-stone-900 border border-stone-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-rose-500 transition-colors" />
+                        <button type="submit" class="bg-rose-600 text-white rounded-lg px-4 py-3 font-medium hover:bg-rose-700 transition-colors">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-stone-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p>&copy; 2026 Ashton Grace. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // --- NAVIGATION LOGIC ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            if(menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                menu.classList.add('hidden');
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
+        function scrollToSection(id) {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            menu.classList.add('hidden');
+            icon.setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
+            
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // --- TRANSCRIPT ACCORDION LOGIC ---
+        function toggleTranscript(id) {
+            const content = document.getElementById(`transcript-content-${id}`);
+            const header = document.getElementById(`transcript-container-${id}`);
+            const icon = document.getElementById(`transcript-icon-${id}`);
+            const title = document.getElementById(`transcript-title-${id}`);
+            const iconContainer = document.getElementById(`transcript-icon-container-${id}`);
+
+            const isExpanded = content.classList.contains('max-h-[1000px]');
+            
+            // Close all others
+            document.querySelectorAll('.transcript-content').forEach(el => {
+                el.classList.remove('max-h-[1000px]', 'opacity-100');
+                el.classList.add('max-h-0', 'opacity-0');
+            });
+            document.querySelectorAll('.transcript-container').forEach(el => {
+                el.classList.remove('border-rose-300', 'shadow-md');
+                el.classList.add('border-stone-200', 'shadow-sm');
+            });
+            document.querySelectorAll('.transcript-title').forEach(el => el.classList.remove('text-rose-600'));
+            document.querySelectorAll('.transcript-icon-container').forEach(el => {
+                el.classList.remove('bg-rose-100', 'text-rose-600');
+                el.classList.add('bg-stone-100', 'text-stone-500');
+            });
+            document.querySelectorAll('.transcript-icon').forEach(el => el.setAttribute('data-lucide', 'chevron-down'));
+
+            // Toggle selected
+            if (!isExpanded) {
+                content.classList.remove('max-h-0', 'opacity-0');
+                content.classList.add('max-h-[1000px]', 'opacity-100');
+                header.classList.remove('border-stone-200', 'shadow-sm');
+                header.classList.add('border-rose-300', 'shadow-md');
+                title.classList.add('text-rose-600');
+                iconContainer.classList.remove('bg-stone-100', 'text-stone-500');
+                iconContainer.classList.add('bg-rose-100', 'text-rose-600');
+                icon.setAttribute('data-lucide', 'chevron-up');
+            }
+            
+            lucide.createIcons();
+        }
+
+        // --- GEMINI API INTEGRATION ---
+        async function callGemini(promptText) {
+            const apiKey = ""; // API key is populated by the environment
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            
+            const payload = {
+                contents: [{ parts: [{ text: promptText }] }]
+            };
+
+            const delays = [1000, 2000, 4000, 8000, 16000];
+            for (let i = 0; i < 5; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!response.ok) throw new Error('API Error');
+                    const data = await response.json();
+                    return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
+                } catch (err) {
+                    if (i === 4) throw err;
+                    await new Promise(r => setTimeout(r, delays[i]));
+                }
+            }
+        }
+
+        async function handleGenerateReflection() {
+            const input = document.getElementById('reflection-input').value;
+            const btn = document.getElementById('btn-reflection');
+            const btnContent = document.getElementById('btn-reflection-content');
+            const errorDiv = document.getElementById('error-reflection');
+            const outputContainer = document.getElementById('output-reflection');
+            const outputText = document.getElementById('text-reflection');
+
+            if (!input.trim()) return;
+
+            btn.disabled = true;
+            btnContent.innerHTML = '<i data-lucide="loader" class="animate-spin mr-3 w-5 h-5"></i> Finding the right words...';
+            lucide.createIcons();
+            errorDiv.classList.add('hidden');
+            outputContainer.classList.add('hidden');
+
+            try {
+                const prompt = `You are acting as an empathetic, empowering voice inspired by an advocate for mental health and domestic violence survivors. A user is feeling: "${input}". Provide a short, compassionate affirmation (2 sentences) followed by a thoughtful journaling prompt for them to reflect on. Format cleanly as plain text.`;
+                const result = await callGemini(prompt);
+                
+                outputText.textContent = result;
+                outputContainer.classList.remove('hidden');
+            } catch (e) {
+                errorDiv.textContent = 'Unable to generate reflection at this moment. Please try again later.';
+                errorDiv.classList.remove('hidden');
+            } finally {
+                btn.disabled = false;
+                btnContent.innerHTML = '<i data-lucide="sparkles" class="mr-3 w-5 h-5 text-rose-400"></i> ✨ Generate Affirmation & Prompt';
+                lucide.createIcons();
+            }
+        }
+
+        async function handleGetInsights(storyId, title, category, excerpt) {
+            const btn = document.getElementById(`btn-insight-${storyId}`);
+            const outputContainer = document.getElementById(`container-insight-${storyId}`);
+            const outputText = document.getElementById(`text-insight-${storyId}`);
+            const errorDiv = document.getElementById(`error-insight-${storyId}`);
+
+            btn.disabled = true;
+            btn.innerHTML = '<i data-lucide="loader" class="w-4 h-4 mr-2 animate-spin text-rose-500"></i> ✨ Get Key Takeaways';
+            lucide.createIcons();
+            errorDiv.classList.add('hidden');
+
+            try {
+                const prompt = `Based on the advocacy story titled "${title}" about ${category} with the excerpt: "${excerpt}", provide 2 short, actionable takeaways or words of advice for a reader who might be going through a similar situation. Format as a clean, simple text list without markdown formatting.`;
+                const result = await callGemini(prompt);
+                
+                btn.classList.add('hidden');
+                outputText.textContent = result;
+                outputContainer.classList.remove('hidden');
+            } catch (e) {
+                errorDiv.textContent = 'Could not load insights.';
+                errorDiv.classList.remove('hidden');
+                btn.disabled = false;
+                btn.innerHTML = '<i data-lucide="sparkles" class="w-4 h-4 mr-2 text-rose-500"></i> ✨ Get Key Takeaways';
+                lucide.createIcons();
+            }
+        }
+    </script>
+</body>
+</html>
