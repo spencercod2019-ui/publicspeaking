@@ -75,8 +75,8 @@
                     <button onclick="scrollToSection('slides')" class="text-sm font-medium text-stone-600 hover:text-rose-600 transition-colors">Slides</button>
                     <button onclick="scrollToSection('calendar')" class="text-sm font-medium text-stone-600 hover:text-rose-600 transition-colors">Calendar</button>
                     <button onclick="scrollToSection('testimonials')" class="text-sm font-medium text-stone-600 hover:text-rose-600 transition-colors">Testimonials</button>
-                    <button onclick="scrollToSection('contact')" class="px-5 py-2.5 bg-stone-900 text-white text-sm font-medium rounded-full hover:bg-stone-800 transition-all shadow-sm hover:shadow-md">
-                        Let's Talk
+                    <button onclick="scrollToSection('booking')" class="px-5 py-2.5 bg-stone-900 text-white text-sm font-medium rounded-full hover:bg-stone-800 transition-all shadow-sm hover:shadow-md">
+                        Book Me
                     </button>
                 </div>
 
@@ -101,6 +101,7 @@
                 <button onclick="scrollToSection('slides')" class="block px-3 py-3 text-base font-medium text-stone-700 hover:text-rose-600 hover:bg-stone-50 rounded-md text-left">Slides</button>
                 <button onclick="scrollToSection('calendar')" class="block px-3 py-3 text-base font-medium text-stone-700 hover:text-rose-600 hover:bg-stone-50 rounded-md text-left">Calendar</button>
                 <button onclick="scrollToSection('testimonials')" class="block px-3 py-3 text-base font-medium text-stone-700 hover:text-rose-600 hover:bg-stone-50 rounded-md text-left">Testimonials</button>
+                <button onclick="scrollToSection('booking')" class="block px-3 py-3 text-base font-medium text-stone-700 hover:text-rose-600 hover:bg-stone-50 rounded-md text-left">Book Me</button>
                 <button onclick="scrollToSection('contact')" class="block px-3 py-3 text-base font-medium text-stone-700 hover:text-rose-600 hover:bg-stone-50 rounded-md text-left">Contact</button>
             </div>
         </div>
@@ -128,7 +129,7 @@
                         Read My Story
                         <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
                     </button>
-                    <button onclick="scrollToSection('speaking')" class="px-8 py-4 bg-white border border-stone-200 text-stone-900 rounded-full font-medium hover:bg-stone-50 hover:border-stone-300 transition-all flex items-center justify-center">
+                    <button onclick="scrollToSection('booking')" class="px-8 py-4 bg-white border border-stone-200 text-stone-900 rounded-full font-medium hover:bg-stone-50 hover:border-stone-300 transition-all flex items-center justify-center">
                         Book Me to Speak
                     </button>
                 </div>
@@ -271,92 +272,11 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CALENDAR SECTION -->
-    <section id="calendar" class="py-24 bg-stone-50 border-t border-stone-100">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-sm font-bold text-rose-500 tracking-widest uppercase mb-2">Join Me Live</h2>
-                <h3 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mb-4">Upcoming Events & Talks</h3>
-                <p class="text-stone-600 text-lg max-w-2xl mx-auto">
-                    Find out where I'll be speaking next. I'd love to connect with you in person or virtually.
-                </p>
-            </div>
-
-            <div class="space-y-6">
-                <!-- Event 1 -->
-                <div class="bg-stone-50 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between border border-stone-200 hover:border-rose-300 hover:shadow-md transition-all group">
-                    <div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-6 md:mb-0">
-                        <div class="bg-white px-6 py-4 rounded-xl border border-stone-100 shadow-sm text-center min-w-[130px]">
-                            <span class="block text-rose-600 font-bold text-xl">May 15</span>
-                            <span class="block text-stone-500 text-sm font-medium"> 2026</span>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-3 mb-2">
-                                <span class="px-3 py-1 bg-rose-100 text-rose-700 text-xs font-bold uppercase tracking-wider rounded-full">Keynote Speaker</span>
-                            </div>
-                            <h4 class="text-xl font-bold text-stone-900 mb-2 group-hover:text-rose-600 transition-colors">Overcoming Trauma: A Survivor's Perspective</h4>
-                            <div class="flex flex-wrap items-center text-sm text-stone-500 gap-4">
-                                <span class="flex items-center"><i data-lucide="clock" class="w-4 h-4 mr-1.5"></i> 10:00 AM EST</span>
-                                <span class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-1.5"></i> New York City, NY - Javits Center</span>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="w-full md:w-auto px-6 py-3 bg-white border border-stone-200 text-stone-900 rounded-xl font-medium hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 transition-all flex items-center justify-center whitespace-nowrap">
-                        Get Tickets
-                        <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
-                    </button>
-                </div>
-
-                <!-- Event 2 -->
-                <div class="bg-stone-50 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between border border-stone-200 hover:border-rose-300 hover:shadow-md transition-all group">
-                    <div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-6 md:mb-0">
-                        <div class="bg-white px-6 py-4 rounded-xl border border-stone-100 shadow-sm text-center min-w-[130px]">
-                            <span class="block text-rose-600 font-bold text-xl">June 02</span>
-                            <span class="block text-stone-500 text-sm font-medium"> 2026</span>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-3 mb-2">
-                                <span class="px-3 py-1 bg-rose-100 text-rose-700 text-xs font-bold uppercase tracking-wider rounded-full">Panelist</span>
-                            </div>
-                            <h4 class="text-xl font-bold text-stone-900 mb-2 group-hover:text-rose-600 transition-colors">Navigating Genetic Testing & BRCA</h4>
-                            <div class="flex flex-wrap items-center text-sm text-stone-500 gap-4">
-                                <span class="flex items-center"><i data-lucide="clock" class="w-4 h-4 mr-1.5"></i> 2:00 PM CST</span>
-                                <span class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-1.5"></i> Virtual Event - Zoom Webinar</span>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="w-full md:w-auto px-6 py-3 bg-white border border-stone-200 text-stone-900 rounded-xl font-medium hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 transition-all flex items-center justify-center whitespace-nowrap">
-                        Get Tickets
-                        <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
-                    </button>
-                </div>
-
-                <!-- Event 3 -->
-                <div class="bg-stone-50 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between border border-stone-200 hover:border-rose-300 hover:shadow-md transition-all group">
-                    <div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-6 md:mb-0">
-                        <div class="bg-white px-6 py-4 rounded-xl border border-stone-100 shadow-sm text-center min-w-[130px]">
-                            <span class="block text-rose-600 font-bold text-xl">August 18</span>
-                            <span class="block text-stone-500 text-sm font-medium"> 2026</span>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-3 mb-2">
-                                <span class="px-3 py-1 bg-rose-100 text-rose-700 text-xs font-bold uppercase tracking-wider rounded-full">Featured Speaker</span>
-                            </div>
-                            <h4 class="text-xl font-bold text-stone-900 mb-2 group-hover:text-rose-600 transition-colors">Women's Empowerment Summit 2026</h4>
-                            <div class="flex flex-wrap items-center text-sm text-stone-500 gap-4">
-                                <span class="flex items-center"><i data-lucide="clock" class="w-4 h-4 mr-1.5"></i> 6:30 PM PST</span>
-                                <span class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-1.5"></i> Los Angeles, CA - LA Convention Center</span>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="w-full md:w-auto px-6 py-3 bg-white border border-stone-200 text-stone-900 rounded-xl font-medium hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 transition-all flex items-center justify-center whitespace-nowrap">
-                        Get Tickets
-                        <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
-                    </button>
-                </div>
+            
+            <div class="mt-16 text-center">
+                <button onclick="scrollToSection('booking')" class="px-8 py-4 bg-white text-stone-900 rounded-full font-medium hover:bg-stone-200 transition-all shadow-lg">
+                    Inquire About Booking
+                </button>
             </div>
         </div>
     </section>
@@ -431,6 +351,71 @@
         </div>
     </section>
 
+    <!-- BOOKING SECTION -->
+    <section id="booking" class="py-24 bg-white border-t border-stone-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-rose-500 tracking-widest uppercase mb-2">Work With Me</h2>
+                <h3 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mb-4">Book Me for Your Event</h3>
+                <p class="text-stone-600 text-lg max-w-2xl mx-auto">
+                    Interested in having me speak at your next conference, workshop, or corporate event? Fill out the form below to initiate a booking request.
+                </p>
+            </div>
+            
+            <div class="bg-stone-50 rounded-3xl p-8 sm:p-10 shadow-sm border border-stone-200 relative overflow-hidden">
+                <form id="booking-form" class="space-y-6" onsubmit="handleBookingSubmit(event)">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-stone-700 mb-2">Your Name</label>
+                            <input type="text" required class="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 text-stone-900 focus:outline-none focus:ring-2 focus:ring-rose-500 transition-colors" placeholder="Jane Doe">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-stone-700 mb-2">Email Address</label>
+                            <input type="email" required class="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 text-stone-900 focus:outline-none focus:ring-2 focus:ring-rose-500 transition-colors" placeholder="jane@example.com">
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-stone-700 mb-2">Event Location</label>
+                            <input type="text" required class="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 text-stone-900 focus:outline-none focus:ring-2 focus:ring-rose-500 transition-colors" placeholder="City, State, or Virtual">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-stone-700 mb-2">Type of Place / Event</label>
+                            <select required class="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 text-stone-900 focus:outline-none focus:ring-2 focus:ring-rose-500 transition-colors appearance-none">
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="conference">Conference</option>
+                                <option value="university">University / Educational Institution</option>
+                                <option value="corporate">Corporate Event</option>
+                                <option value="nonprofit">Non-Profit Gala / Fundraiser</option>
+                                <option value="workshop">Workshop / Retreat</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-stone-700 mb-2">Additional Details</label>
+                        <textarea rows="4" class="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 text-stone-900 focus:outline-none focus:ring-2 focus:ring-rose-500 transition-colors resize-none" placeholder="Tell me more about the expected audience, date, and your goals for the event..."></textarea>
+                    </div>
+
+                    <button id="booking-submit-btn" type="submit" class="w-full py-4 bg-rose-600 text-white rounded-xl font-medium hover:bg-rose-700 transition-all flex items-center justify-center shadow-lg shadow-rose-200">
+                        <i data-lucide="send" class="w-5 h-5 mr-2"></i> Submit Booking Inquiry
+                    </button>
+                </form>
+
+                <!-- Success Message -->
+                <div id="booking-success" class="hidden text-center py-12">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-6">
+                        <i data-lucide="check" class="w-8 h-8 text-green-600"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-stone-900 mb-2">Inquiry Sent!</h4>
+                    <p class="text-stone-600">Thank you for your interest. My team will review your event details and get back to you shortly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER & CONTACT -->
     <footer id="contact" class="bg-stone-950 text-stone-400 pt-20 pb-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -470,6 +455,7 @@
                         <li><button onclick="scrollToSection('slides')" class="hover:text-rose-400 transition-colors">Slides</button></li>
                         <li><button onclick="scrollToSection('calendar')" class="hover:text-rose-400 transition-colors">Calendar</button></li>
                         <li><button onclick="scrollToSection('testimonials')" class="hover:text-rose-400 transition-colors">Testimonials</button></li>
+                        <li><button onclick="scrollToSection('booking')" class="hover:text-rose-400 transition-colors">Book Me</button></li>
                     </ul>
                 </div>
 
@@ -525,6 +511,34 @@
             if (element) {
                 element.scrollIntoView({ behavior: 'smooth' });
             }
+        }
+
+        // --- BOOKING FORM LOGIC ---
+        function handleBookingSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('booking-form');
+            const successMessage = document.getElementById('booking-success');
+            const submitBtn = document.getElementById('booking-submit-btn');
+
+            // Simulate sending delay
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i data-lucide="loader" class="animate-spin mr-2 w-5 h-5"></i> Sending...';
+            lucide.createIcons();
+
+            setTimeout(() => {
+                form.classList.add('hidden');
+                form.reset();
+                successMessage.classList.remove('hidden');
+                
+                // Reset form state after showing success message for a bit
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                    form.classList.remove('hidden');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i data-lucide="send" class="w-5 h-5 mr-2"></i> Submit Booking Inquiry';
+                    lucide.createIcons();
+                }, 6000);
+            }, 1500);
         }
 
         // --- TRANSCRIPT ACCORDION LOGIC ---
